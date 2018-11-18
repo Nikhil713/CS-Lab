@@ -24,8 +24,8 @@ void main()
                         a[k] = c;
                 else
 
-X:
-		        for(;a[k]!=0 && k<10;)
+		X:
+		  	for(;a[k]!=0 && k<10;)
 			{
 				k = b + (j*j);
 				j++;
@@ -37,11 +37,11 @@ X:
 	           		goto X;
 			}
 
-                a[k] = c;
+                	a[k] = c;
         }
 
-
+	printf("After Hashing\n");
         for(i=0;i<10;i++)
-                printf("\n%d | %d",i,a[i]);
+                printf("\n%d | %d\n",i,a[i]);
 }
 

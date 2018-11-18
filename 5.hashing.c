@@ -7,10 +7,9 @@ void main()
 
         printf("\nEnter the number of elements: ");
         scanf("%d",&n);
-
+	printf("\nEnter the elements: ");
         for(i=0;i<10;i++)
            a[i] = 0;
-
 
         for(i=0;i<n;i++)
         {
@@ -29,6 +28,7 @@ void main()
                 a[k] = c;
         }
 
+	printf("After Hashing:");
 
         for(i=0;i<10;i++)
                 printf("\n%d",a[i]);

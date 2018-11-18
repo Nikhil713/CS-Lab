@@ -43,7 +43,7 @@ void main()
 
 
         for(i=0;i<20;i++)
-                printf("%d |  %s | %d \n",i,a[i],ph[i]);
+                printf("%d  |  %s | %d \n",i,a[i],ph[i]);
 
 	printf("\n Enter the name : ");
 	scanf("%s",c);
@@ -52,7 +52,3 @@ void main()
 		if(strcmp(a[i],c)==0)
 			printf("\n %d",ph[i]);
 }
-
-
-
-
