@@ -1,6 +1,4 @@
 #include<stdio.h>
-#define MAX 100
-
 
 void bubble(int arr[],int n)
 {
