@@ -7,11 +7,7 @@ void swap(int *, int *);
 
 int main(void)
 {
-    int i, n , a[10];
-    printf("Enter the size of array:");
-    scanf("%d",&n);
-    for(i=0;i<n;i++)
-        scanf("%d",&a[i]);
+    int i, n = 5, a[] = {34, 54, 66, 12, 9};
 
     // Print Unsorted array
     printArray(a, n);
