@@ -1,1 +1,3 @@
-<h1> DS Lab Cycle questions</h1>
+B-Tech Lab Cycle for each Sem
+
+->  DS Lab -C
