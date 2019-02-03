@@ -1,3 +1,3 @@
 B-Tech Lab Cycle for each Sem
 
-->  DS Lab -C
+->  DS Lab : C Programming (Semester III)
