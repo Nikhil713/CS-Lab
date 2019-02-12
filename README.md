@@ -1,5 +1,5 @@
 B-Tech Lab Cycle for each Sem
 
-->  DS Lab : C Programming (Semester III)
+->  DS Lab  : C Programming (Semester III)
 <br>
-->  FOSSLAB: Shell Scripting
+->  FOSSLAB : Shell Scripting
