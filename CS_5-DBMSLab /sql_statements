@@ -1,0 +1,231 @@
+mysql -u mec -p  // To login to SQL
+
+create database Nikhildb;  // To create database in SQL
+
+// use 'show databases' to display all available databases
+
+use Nikhildb; // To manipulate database Nikhildb
+
+create table student (
+	name varchar(100),
+	class varchar(20),
+	rollno int,					//Creating table student
+	dob date,
+	addr varchar(100)
+);						
+
+
+
+//Inserting values into table marksheet
+
+insert into student 
+values('A','CSB',1,'1999-1-1','Delhi');
+
+insert into student
+values('B','CSB',2,'1999-10-10','Mumbai');
+
+insert into student 
+values('C','CSB',3,'1998-12-20','Mumbai');	
+
+insert into student 
+values('D','CSB',4,'1999-4-28','Kolkata');
+
+
+select * from student;
++------+-------+--------+------------+---------+
+| name | class | rollno | dob        | addr    |
++------+-------+--------+------------+---------+
+| A    | CSB   |      1 | 1999-01-01 | Delhi   |
+| B    | CSB   |      2 | 1999-10-10 | Mumbai  |
+| C    | CSB   |      3 | 1998-12-20 | Mumbai  |
+| D    | CSB   |      4 | 1999-04-28 | Kolkata |
++------+-------+--------+------------+---------+
+
+alter table student add primary key(rollno); //Make rollno PK
+
+describe student;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| name   | varchar(100) | YES  |     | NULL    |       |
+| class  | varchar(20)  | YES  |     | NULL    |       |
+| rollno | int(11)      | NO   | PRI | NULL    |       |
+| dob    | date         | YES  |     | NULL    |       |
+| addr   | varchar(100) | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+
+
+
+create table marksheet(
+	rollno int,
+	name varchar(100),				//Creating table marksheet
+	marks1 int,
+	marks2 int
+);
+
+//Inserting values into table marksheet
+
+insert into marksheet  
+values(1,'A',21,23);
+
+insert into marksheet  
+values(2,'B',24,20);
+
+insert into marksheet  
+values(4,'D',19,16);
+
+
+select * from marksheet;
++--------+------+--------+--------+
+| rollno | name | marks1 | marks2 |
++--------+------+--------+--------+
+|      1 | A    |     21 |     23 |
+|      2 | B    |     24 |     20 |
+|      4 | D    |     19 |     16 |
++--------+------+--------+--------+
+
+alter table marksheet add foreign key(rollno) references student(rollno);   // Make rollno foreign key to table student 
+
+describe marksheet;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| rollno | int(11)      | YES  | MUL | NULL    |       |
+| name   | varchar(100) | YES  |     | NULL    |       |
+| marks1 | int(11)      | YES  |     | NULL    |       |
+| marks2 | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+
+
+	|		|		
+	|	.	|		
+	|	.	|		
+	|		|		
+
+		||
+		\/
+
+
+select * from student join marksheet on student.rollno=marksheet.rollno;
++------+-------+--------+------------+---------+--------+------+--------+--------+
+| name | class | rollno | dob        | addr    | rollno | name | marks1 | marks2 |
++------+-------+--------+------------+---------+--------+------+--------+--------+
+| A    | CSB   |      1 | 1999-01-01 | Delhi   |      1 | A    |     21 |     23 |
+| B    | CSB   |      2 | 1999-10-10 | Mumbai  |      2 | B    |     24 |     20 |
+| D    | CSB   |      4 | 1999-04-28 | Kolkata |      4 | D    |     19 |     16 |
++------+-------+--------+------------+---------+--------+------+--------+--------+
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+create table subject(
+	subjectname varchar(40),		
+	rollno int
+);
+
+//Inserting values into table subjects
+
+insert into subject 
+values('Physics',1);
+
+
+insert into subject 
+values('Physics',2);
+
+insert into subject 
+values('Chemistry',1);
+
+insert into subject 
+values('Maths',2);
+
+select * from subject;
+
++-------------+--------+
+| subjectname | rollno |
++-------------+--------+
+| Physics     |      1 |
+| Physics     |      2 |
+| Chemistry   |      1 |
+| Maths       |      2 |
++-------------+--------+
+
+alter table subject add foreign key(rollno) references student(rollno);      // Make rollno foreign key to table student 
+
+desc subject;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| subjectname | varchar(40) | YES  |     | NULL    |       |
+| rollno      | int(11)     | YES  | MUL | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+
+
+
+	|		|\      /|
+	|	.	| \    / |
+	|	.	|  \  /  |
+	|		|   \/   |
+
+		||
+		\/
+
++------+-------+--------+------------+--------+-------------+--------+
+| name | class | rollno | dob        | addr   | subjectname | rollno |
++------+-------+--------+------------+--------+-------------+--------+
+| A    | CSB   |      1 | 1999-01-01 | Delhi  | Physics     |      1 |
+| B    | CSB   |      2 | 1999-10-10 | Mumbai | Physics     |      2 |
+| A    | CSB   |      1 | 1999-01-01 | Delhi  | Chemistry   |      1 |
+| B    | CSB   |      2 | 1999-10-10 | Mumbai | Maths       |      2 |
++------+-------+--------+------------+--------+-------------+--------+
+
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+	|\      /|		|\   |
+	| \    / |	.	| \  |
+	|  \  /  |	.	|  \ |
+	|   \/   |		|   \|
+
+		
+			||
+			\/
+
+select * from student join marksheet on student.rollno=marksheet.rollno join subject on student.rollno=subject.rollno;
+
++------+-------+--------+------------+--------+--------+------+--------+--------+-------------+--------+
+| name | class | rollno | dob        | addr   | rollno | name | marks1 | marks2 | subjectname | rollno |
++------+-------+--------+------------+--------+--------+------+--------+--------+-------------+--------+
+| A    | CSB   |      1 | 1999-01-01 | Delhi  |      1 | A    |     21 |     23 | Physics     |      1 |
+| B    | CSB   |      2 | 1999-10-10 | Mumbai |      2 | B    |     24 |     20 | Physics     |      2 |
+| A    | CSB   |      1 | 1999-01-01 | Delhi  |      1 | A    |     21 |     23 | Chemistry   |      1 |
+| B    | CSB   |      2 | 1999-10-10 | Mumbai |      2 | B    |     24 |     20 | Maths       |      2 |
++------+-------+--------+------------+--------+--------+------+--------+--------+-------------+--------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
