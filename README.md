@@ -5,3 +5,5 @@ B-Tech Lab Cycle for each Sem
 ->  FOSSLAB : Shell Scripting
 <br>
 ->  Software Lab : Operating system programming
+<br>
+->  DBMS Lab: Application Software Development Lab
