@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include<string.h>
 struct
 {
@@ -9,7 +10,7 @@ void main()
 	{
 	int i,ch,dcnt,k;
 	char f[30], d[30];
-	clrscr();
+	
 	dcnt=0;
 	while(1)
 	{
