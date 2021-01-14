@@ -1,0 +1,5 @@
+E-> TE’
+E’-> +TE’ | -TE’ | null
+T-> FT’
+T’-> *FT’| /FT’ | null
+F-> id/ (E)/ num
